@@ -1,0 +1,394 @@
+/* Custom CSS variables */
+
+:root {
+    --clr-nav: white;
+    --clr-text: white;
+    --clr-white: #ffffff;
+    --clr-text-clicked: #606060;
+    --clr-sport-link: red;
+    --clr-live: red;
+    --clr-reddy: rgb(191, 19, 19);
+  }
+  
+  
+  /* Custom css reset */
+  
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+  
+  * {
+    margin: 0;
+  }
+  
+  body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    background-color:var(--clr-reddy);
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  img,
+  picture,
+  video,
+  canvas,
+  svg {
+    display: block;
+    max-width: 100%;
+  }
+  
+  input,
+  button,
+  textarea,
+  select {
+    font: inherit;
+  }
+  
+  h1{
+    color:var(--clr-reddy);
+  }
+
+
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    overflow-wrap: break-word;
+  }
+  
+  #root,
+  #__next {
+    isolation: isolate;
+  }
+  
+  /*Global styles*/
+  body {
+    margin-block: -20px;
+    color: white;
+  }
+  
+  img{
+    border:dotted white 20px;
+    border-radius: 50%;
+  }
+
+  main {
+    margin-inline: 8px;
+    margin-block: 16px;
+    color: white;
+  }
+  
+  @media (min-width: 768px) {
+    main {
+      margin-block: 0px;
+    }
+  }
+  
+  a {
+    color: var(--clr-text);
+  }
+  
+  h3 {
+    font-size: 1.125rem;
+    color:white;
+  }
+  
+  .uppercase {
+    text-transform: uppercase;
+  }
+  
+  
+  /*Header styles */
+  
+  /* Main Navigation styles*/
+  
+  .nav__main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* padding: 0 0.25rem; */
+    margin-inline: 16px;
+    height: 103px;
+  }
+  
+  .nav__main__list {
+    display: flex;
+    list-style: none;
+    padding-left: 0;
+    gap: 1rem;
+  }
+  
+  .nav__main__listItem {
+    display: flex;
+    align-items: center;
+  }
+  
+ /* Baubles */
+ .bauble__imageContainer{
+  display: flex;
+  align-items: center;
+ }
+
+ .small{
+  display:grid;
+  column-span: 1;
+  grid-template-columns: 1fr 1fr 1fr;
+ }
+  
+ 
+  
+  /*Sport navigation styles */
+  
+  .nav__sport {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: -20px;
+    height:100px;
+    background: repeating-linear-gradient(
+      45deg,
+     red,
+      red 10px,
+     white 10px,
+     white 20px);
+  }
+  
+  
+  
+  .nav__sport__menu {
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+    margin-inline-end: 8px;
+    padding: 5px 5px;
+    text-decoration: none;
+    color: var(--clr-text);
+    border: solid 1px rgba(0, 0, 0, 0.315);
+  }
+  
+  .nav__sport__menu p {
+    font-size: 1rem;
+  }
+  
+  .title__1{
+    color:white;
+  }
+
+  .title__2{
+    color: var(--clr-reddy);
+  }
+
+  h1 {
+    font-size: 36px;
+    margin-left: 6px;
+    color:white;
+  }
+  
+  .bauble__text__1{
+    border: dotted 5px white;
+    padding: 10px;
+    margin:20px
+  }
+  /* Mobile Navigation styles */
+  
+  @media (max-width: 75em) {
+    .nav__links {
+      position: fixed;
+      inset: 0 0 0 0;
+      background: black;
+      flex-direction: column;
+      padding-inline: 0rem;
+      z-index: 1000;
+      transform: translateY(-100%);
+      transition: transform 350ms ease-out;
+    }
+  
+    .nav__links[data-visible="true"] {
+      transform: translateY(13%);
+    }
+  
+    .mobile__nav__toggle[aria-expanded="true"] {
+      height: 40px;
+      background-color: var(--clr-text);
+    }
+  
+    .mobile__nav__toggle[aria-expanded="true"] a {
+      color: var(--clr-white);
+    }
+  
+    .mobile__nav__toggle[aria-expanded="true"] img {
+      background-color: white;
+    }
+  
+    .mobile__nav__toggle {
+      display: block;
+      position: absolute;
+      border: 0;
+      height: 21px;
+      width: 100px;
+      right: 10px;
+      top: 70px;
+      z-index: 9999;
+    }
+  
+    .nav__links li {
+      border-bottom: 1px solid var(--clr-text-clicked);
+      padding-block: 0.5rem;
+    }
+  
+    .nav__link {
+      padding-left: 0.5rem;
+    }
+  }
+  
+  /*Main news styles*/
+  
+  .news__container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  
+  .news__card {
+    display: flex;
+    grid-column: span 1;
+    border-top: solid 1px var(--clr-text-clicked);
+    padding-top: 0.5rem;
+    gap: 0.5rem;
+    line-height: 1.6;
+  }
+  
+  .news__card a:active {
+    animation: click-animation 2s;
+    animation-fill-mode: forwards;
+  }
+  
+  @keyframes click-animation {
+    0% {
+      color: black;
+    }
+    50% {
+      color: var(--clr-sport-link);
+      text-decoration: underline;
+    }
+    100% {
+      color: var(--clr-text-clicked);
+      text-decoration: none;
+    }
+  }
+  
+  .title__2{
+    color: var(--clr-reddy);
+    font-weight:bolder;
+    background-color: pink;
+    padding-inline: 10px;
+  }
+ 
+  .news__card__textContainer {
+    width: 100%;
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .news__card__image {
+    width: 100%;
+  }
+  
+  .news__card__headline {
+    text-decoration: none;
+    line-height: 1.2;
+  }
+  
+  .news__card__headline h3 {
+    font-size: 1rem;
+  }
+  
+  .news__card__sport {
+    text-decoration: none;
+    color: var(--clr-sport-link);
+    display: block;
+    font-size: 13px;
+  }
+  
+  .feed__list__images {
+    width: 350px;
+  }
+  
+  @media (min-width: 768px) {
+    .news__container {
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 1rem;
+      margin: 0.5rem;
+    }
+  
+    .news__card:nth-child(1),
+    .news__card:last-child {
+      grid-column: span 2;
+      grid-row: span 2;
+      margin-block-end: 0;
+    }
+  
+    .news__card:nth-child(1) .news__card__sport,
+    .news__card:last-child .news__card__sport {
+      margin-block-start: 6rem;
+    }
+  
+    .news__card:nth-child(3) {
+      margin-block-end: 0;
+    }
+  
+    .news__card .news__card__imageContainer {
+      display: none;
+    }
+  
+    .news__card {
+      grid-column: span 1;
+    }
+  
+    .news__card__headline h3 {
+      font-size: 1.125rem;
+    }
+  
+    .news__card__sport {
+      padding-bottom: 0.8rem;
+      padding-top: 0.5rem;
+    }
+  
+    .news__card__headline h2 {
+      font-size: 1.8rem;
+    }
+  }
+  
+  /* Live animation */
+  
+
+  
+  /*Social Links*/
+  
+
+  /*Footer styles*/
+  
+  footer {
+    background-color: white;
+    color: rgb(169, 77, 93);
+  }
+
+  .snow{
+    background-color: black;
+    height: 20px;
+    width:20px;
+    border-radius: 10px;
+  }
+
+  .black{
+    color:red;
+    background-color: white;
+  }
